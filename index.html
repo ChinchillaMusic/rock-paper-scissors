@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Rock, Papper, Scissors</title>
+    <link rel="icon" type="image-png" href="images/logoCoding-32x32.png">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  </head>
+  <body style="background-color: #d4ebde;">
+    <nav class="navbar navbar-expand body-tertiary px-2" style="background-color: #f4fce5;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="images/brand.png" alt="ChinchillaCoding" width="30" height="30"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active navbar-text">Rock, Papper, Scissors by JL Chinchilla</a>
+          </li>
+          <li class="nav-item linkeable border-start">
+            <a class="nav-link active" href="https://portfolio-jlchinchilla.netlify.app/" target="_blank">Portfolio</a>
+          </li>
+          <li class="nav-item linkeable">
+            <a class="nav-link" href="https://github.com/ChinchillaMusic" target="_blank"><i class="fa-brands fa-github" style="color: #000;"></i></a>
+          </li>
+          <li class="nav-item linkeable">
+            <a class="nav-link" href="https://www.linkedin.com/in/joseluischinchillachacon/" target="_blank"><i class="fa-brands fa-linkedin-in" style="color: #000;"></i></a>
+          </li>
+          <li class="nav-item linkeable">
+            <a class="nav-link" href="mailto:chinchillacoding@gmail.com" target="_blank"><i class="fa-solid fa-at" style="color: #000;"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12 pt-4">
+          <h3 class="text-center">Choose Wisely</h3>
+        </div>
+        <div id="round1-div" class="col-6 p-3 py-3 text-center">
+          <button type="button" id="round1-button" class="btn btn-primary">1 Round Game</button>
+        </div>
+        <div id="round3-div" class="col-6 p-3 py-3 text-center">
+          <button type="button" id="round3-button" class="btn btn-secondary">3 Rounds Game</button>
+        </div>
+        <div id="rock-div" class="col-4 justify-content-envenly p-3 text-center">
+          <button type="button" id="rock-button" class="fa-solid fa-hand-back-fist fa-2xl interactive-button px-2 py-4" style="color: #ff0000;"></button>
+          <p class="p-2">Rock</p>
+        </div>
+        <div id="papper-div" class="col-4 justify-content-envenly p-3 text-center">
+          <button type="button" id="papper-button" class="fa-solid fa-hand fa-2xl interactive-button px-2 py-4" style="color: #ffea00;"></button>
+          <p class="p-2">Papper</p>
+        </div>
+        <div id="scissors-div" class="col-4 justify-content-envenly p-3 text-center">
+          <button type="button" id="scissors-button" class="fa-solid fa-hand-scissors fa-2xl interactive-button px-2 py-4" style="color: #0037ff;"></button>
+          <p class="p-2">Scissors</p>
+        </div>
+        <div class="col-12 px-md-5 py-1">
+          <p id="points-table" class="text-center">Computer - 0 || Human - 0</p>
+          <p id="round-count" class="text-center">Round: 0</p>
+          <p id="what-happened1" class="text-center">Let's Go!</p>
+          <p id="what-happened2" class="text-center">PC X vs Person X</p>
+          <p class="text-center mx-md-4"><span class="fw-bold text-danger">Rock</span>, <span class="fst-italic text-warning">Papper</span>, <span class="text-decoration-underline text-primary">Scissors</span> is a simple game that involves two players. In this version you will play against the computer. Select one of three options: <span class="fw-bold text-danger">rock</span>, <span class="fst-italic text-warning">papper</span>, or <span class="text-decoration-underline text-primary">scissors</span>. The objective is to determine the winner based on the choices made. <span class="fw-bold text-danger">Rock</span> defeats <span class="text-decoration-underline text-primary">scissors</span>, <span class="text-decoration-underline text-primary">scissors</span> defeats <span class="fst-italic text-warning">papper</span>, and <span class="fst-italic text-warning">papper</span> defeats <span class="fw-bold text-danger">rock</span>. The players compare their choices, and the option that defeats the other is declared the winner. <span class="text-success">If both players make the same choice, it's a tie</span>. It's a quick and entertaining way to settle decisions or have fun!</p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/6a9532a66c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

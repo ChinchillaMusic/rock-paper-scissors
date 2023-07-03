@@ -1,0 +1,18 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.linkeable:hover {
+  border-bottom: 2px dotted black;
+}
+
+.interactive-button {
+  background-color: black;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.interactive-button:hover {
+  background-color:  rgba(0, 128, 0, 0.539);
+}
