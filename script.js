@@ -41,63 +41,29 @@ let roundSelector = (roundInput) => {
 let rockPapperScissors = (gameInput) => {
   round++;
   let pcChoiceNum = Math.floor(Math.random() * 9.99);
-  switch (gameInput) {
-    case 1:
-      humanChoice = "Rock";
-      if (pcChoiceNum < 4) {
-        message1.innerHTML = "It's a draw!";
-        pcChoice = "Rock";
-      } else if (pcChoiceNum > 4 && pcChoiceNum < 7) {
-        message1.innerHTML = "Papper defeats rock, you loose";
-        pcChoice = "Papper";
-        pcPoints++;
-      } else if (pcChoiceNum > 6) {
-        message1.innerHTML = "Rock defeats scissors, you win";
-        pcChoice = "Scissors";
-        humanPoints++;
-      }
-      break;
-    case 2:
-      humanChoice = "Papper";
-      if (pcChoiceNum < 4) {
-        message1.innerHTML = "Papper defeats rock, you win";
-        pcChoice = "Rock";
-        humanPoints++;
-      } else if (pcChoiceNum > 4 && pcChoiceNum < 7) {
-        message1.innerHTML = "It's a draw!";
-        pcChoice = "Papper";
-      } else if (pcChoiceNum > 6) {
-        message1.innerHTML = "Scissors defeats papper, you loose";
-        pcChoice = "Scissors";
-        pcPoints++;
-      }
-      break;
-    case 3:
-      humanChoice = "Scissors";
-      if (pcChoiceNum < 4) {
-        message1.innerHTML = "Rock defeats scissors, you loose";
-        pcChoice = "Rock";
-        pcPoints++;
-      } else if (pcChoiceNum > 4 && pcChoiceNum < 7) {
-        message1.innerHTML = "Scissors defeats papper, you win";
-        pcChoice = "Papper";
-        humanPoints++;
-      } else if (pcChoiceNum > 6) {
-        message1.innerHTML = "It's a draw!";
-        pcChoice = "Scissors";
-      }
-      break;
-    default:
-      throw new Error('There must be a problem');
+  let gameChoices = ['Rock', 'Papper', 'Scissors'];
+  let winConditions = {
+    'Rock': { win: 'Scissors', lose: 'Papper' },
+    'Papper': { win: 'Rock', lose: 'Scissors' },
+    'Scissors': { win: 'Papper', lose: 'Rock' },
+  };
+  humanChoice = gameChoices[gameInput - 1];
+  pcChoice = gameChoices[Math.floor(pcChoiceNum / 3.33)];
+  if (pcChoice === humanChoice) {
+    message1.innerHTML = "It's a draw!";
+  } else if (winConditions[humanChoice].win === pcChoice) {
+    message1.innerHTML = `${humanChoice} defeats ${pcChoice}, you win`;
+    humanPoints++;
+  } else {
+    message1.innerHTML = `${pcChoice} defeats ${humanChoice}, you loose`;
+    pcPoints++;
   }
   pointTable.innerHTML = "Computer - " + pcPoints + " || Human - " + humanPoints;
   roundTable.innerHTML = "Round: " + round;
   message2.innerHTML = "PC " + pcChoice + " vs Person " + humanChoice;
-  if (humanPoints > 1 || (isOneRound && humanPoints > 0)) {
-  alert("You won in the " + round + " round using " + humanChoice + " against " + pcChoice + ". Congratulations my friend!");
-  restartGame();
-  } else if (pcPoints > 1 || (isOneRound && pcPoints > 0)) {
-    alert("PC won in the " + round + " round using " + humanChoice + " against " + pcChoice + ". Better luck next time!");
+  if ((isOneRound && (humanPoints > 0 || pcPoints > 0)) || humanPoints > 1 || pcPoints > 1) {
+    let winner = humanPoints > pcPoints ? "You" : "PC";
+    alert(`${winner} won in the ${round} round using ${humanChoice} against ${pcChoice}. ${winner === 'You' ? 'Congratulations my friend!' : 'Better luck next time!'}`);
     restartGame();
   }
 }
